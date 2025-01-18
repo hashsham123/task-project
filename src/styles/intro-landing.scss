@@ -1,8 +1,6 @@
 .task-main-frames {
-  display: block;
-  // @media (max-width: 700px) {
-  //   display: none;
-  // }
+  display: flex;
+  justify-content: center;
 }
 
 .task-main-frame {

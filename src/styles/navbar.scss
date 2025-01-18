@@ -3,9 +3,11 @@
 .task-navbar {
   display: flex;
   width: 98%;
+  height: 3rem;
   align-items: center;
   padding: 1rem;
   padding-left: 2rem;
+  z-index: 10;
   .task-navbar-logo {
     object-fit: cover;
     width: 33.33%;

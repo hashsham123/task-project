@@ -1,0 +1,35 @@
+.task-intro-navbar {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.task-intro-navbar-desc {
+  width: 45%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+  img{
+    padding: 0.1rem;
+    border: 1px solid #8986865c;
+    height: 1rem;
+    width: 1rem;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+.task-intro-navbar-links {
+  width: 50%;
+  display: flex;
+  justify-content: end;
+  gap: 2rem;
+  p {
+    font-size: 0.8rem;
+  }
+}
