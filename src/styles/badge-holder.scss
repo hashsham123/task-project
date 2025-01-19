@@ -1,0 +1,32 @@
+@use "./common/base.scss" as *;
+
+.task-product-badge {
+  display: flex;
+  background-color: #ffffff;
+  width: auto;
+  padding: 0.5rem;
+  height: 1.8rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1.5rem;
+  .task-product-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 50%;
+      width: 50%;
+      margin: 0.2rem;
+    }
+  }
+  .task-product-text {
+    color: #060606;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}

@@ -17,7 +17,7 @@ function LandingPage() {
       <Navbar />
       <div className="task-landing-content">
         <button className="task-landing-content-badge">
-          <img src="assets/images/shines.png" alt="icon" />
+          <img src="assets/icons/shines.png" alt="icon" />
           <p>Beta release</p>
         </button>
         <ul className="task-head-list">

@@ -3,7 +3,6 @@ import "../styles/intro-landing.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { frames } from "./utils/frames";
-import IntroNavbar from "./IntroNavbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,7 +72,6 @@ const IntroLanding: React.FC = () => {
 
   return (
     <div className="task-main-frames">
-      <IntroNavbar />
       <div className="task-main-frame" style={{ height: "900vh" }}>
         <canvas className="canvas" ref={canvasRef} />
       </div>

@@ -68,8 +68,24 @@ function Navbar() {
         </li>
       </ul>
       <div className="task-navbar-buttons">
-        <button>Contact Us</button>
-        <button className="bg-color">Sign-up for free</button>
+        <button
+          className={`${
+            isElementVisible
+              ? "animate__animated animate__fadeInUp animate__slow"
+              : ""
+          }`}
+        >
+          Contact Us
+        </button>
+        <button
+          className={` bg-color ${
+            isElementVisible
+              ? "animate__animated animate__fadeInUp animate__slower"
+              : ""
+          }`}
+        >
+          Sign-up for free
+        </button>
       </div>
     </div>
   );

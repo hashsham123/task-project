@@ -6,13 +6,17 @@ function IntroNavbar() {
     <div className="task-intro-navbar">
       <div className="task-intro-navbar-desc">
         <p>GPU AI/ML Apps today! Nvidia A100s & H100s for $1.3/h </p>
-        <img src="assets/images/next.png" alt="icon" />
+        <img src="assets/icons/next.png" alt="icon" />
       </div>
       <div className="task-intro-navbar-links">
         <p>Under attack?</p>
         <p>Login</p>
         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <img src="assets/images/world.png" alt="icon" style={{height: "1rem"}}/>
+          <img
+            src="assets/icons/world.png"
+            alt="icon"
+            style={{ height: "1rem" }}
+          />
           <p>EN</p>
         </div>
       </div>

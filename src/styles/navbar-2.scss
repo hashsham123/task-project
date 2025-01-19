@@ -1,0 +1,42 @@
+@use "./common/base.scss" as *;
+
+.task-navbar2 {
+  display: flex;
+  position: fixed;
+  top: 2.9rem;
+  left: -1rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  padding-left: 2rem;
+  width: 96.5%;
+  z-index: 12;
+
+  .task-navbar-items2 {
+    background: #222325e4;
+    padding: 1rem;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: auto;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+
+    .task-navbar-logo2 {
+      object-fit: cover;
+      img {
+        height: 2.5rem;
+        width: 8rem;
+      }
+    }
+    button{
+      background-color: #ffffff;
+      color: #222325;
+      font-size: 0.8rem;
+    }
+  }
+}
