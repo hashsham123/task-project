@@ -14,10 +14,10 @@ function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      const targetHeight = window.innerHeight * 5.9;
+      const targetHeight = window.innerHeight * 5.5;
       setIsFixed1(scrollTop >= targetHeight);
       setIsFixed2(scrollTop >= targetHeight + 100);
-      setIsFixed3(scrollTop >= targetHeight + 2000);
+      setIsFixed3(scrollTop >= targetHeight + 1500);
     };
 
     window.addEventListener("scroll", handleScroll);

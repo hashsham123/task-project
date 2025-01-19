@@ -230,13 +230,20 @@ function ProductInfo() {
                 the performance of AI-enabled applications.{" "}
               </li>
             </ul>
-            <div className="task-product-badges">
+            <div
+              ref={badgeObserver.ref}
+              className={`task-product-badges ${
+                badgeObserver.hasBeenVisible
+                  ? "animate__animated animate__fadeInRight animate__slow"
+                  : ""
+              }`}
+            >
               {badgeData.map((row, rowIndex) => (
                 <div
                   ref={badgeObserver.ref}
                   className={`task-product-badges-row task-product-badges-row2 ${
                     badgeObserver.hasBeenVisible
-                      ? "animate__animated animate__fadeInRight animate__slow"
+                      ? "animate__animated animate__fadeInRight animate__slower"
                       : ""
                   }`}
                   key={rowIndex}
