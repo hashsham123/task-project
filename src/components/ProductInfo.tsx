@@ -20,6 +20,10 @@ function ProductInfo() {
   const textGroup1Observer = useVisibilityObserver({ threshold: 0.5 });
   const textGroup2Observer = useVisibilityObserver({ threshold: 0.5 });
 
+  const smallDescriptionObserver1 = useVisibilityObserver({ threshold: 0.5 });
+  const smallDescriptionObserver2 = useVisibilityObserver({ threshold: 0.5 });
+  const smallDescriptionObserver3 = useVisibilityObserver({ threshold: 0.5 });
+
   const badgeObserver = useVisibilityObserver({ threshold: 0.5 });
 
   return (
@@ -228,6 +232,40 @@ function ProductInfo() {
                 }`}
               >
                 the performance of AI-enabled applications.{" "}
+              </li>
+            </ul>
+
+            <ul className="task-product-list">
+              <li
+                ref={smallDescriptionObserver1.ref}
+                className={`${
+                  descriptionObserver3.hasBeenVisible
+                    ? "animate__animated animate__fadeInUp animate__slower"
+                    : ""
+                }`}
+              >
+                Its particularly useful for AI apps that need immediate
+                processing
+              </li>
+              <li
+                ref={smallDescriptionObserver2.ref}
+                className={`${
+                  descriptionObserver3.hasBeenVisible
+                    ? "animate__animated animate__fadeInUp animate__slower"
+                    : ""
+                }`}
+              >
+                and minimal delay, like generative AI and real time object{" "}
+              </li>
+              <li
+                ref={smallDescriptionObserver3.ref}
+                className={`${
+                  descriptionObserver3.hasBeenVisible
+                    ? "animate__animated animate__fadeInUp animate__slower"
+                    : ""
+                }`}
+              >
+                detection
               </li>
             </ul>
             <div
