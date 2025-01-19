@@ -23,7 +23,7 @@ function LandingPage() {
         <ul className="task-head-list">
           <li
             className={` ${
-              headListObserver.isVisible
+              headListObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__faster"
                 : ""
             }`}
@@ -33,7 +33,7 @@ function LandingPage() {
           </li>
           <li
             className={` ${
-              headListObserver.isVisible
+              headListObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__fast"
                 : ""
             }`}
@@ -42,7 +42,7 @@ function LandingPage() {
           </li>
           <li
             className={` ${
-              headListObserver.isVisible
+              headListObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__slow"
                 : ""
             }`}
@@ -51,7 +51,7 @@ function LandingPage() {
           </li>
           <li
             className={` ${
-              headListObserver.isVisible
+              headListObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__slower"
                 : ""
             }`}
@@ -62,7 +62,7 @@ function LandingPage() {
         <ul className="task-landing-content-description">
           <li
             className={` ${
-              descriptionListObserver.isVisible
+              descriptionListObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__fast"
                 : ""
             }`}
@@ -73,7 +73,7 @@ function LandingPage() {
           </li>
           <li
             className={` ${
-              descriptionListObserver.isVisible
+              descriptionListObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__slow"
                 : ""
             }`}
@@ -84,7 +84,7 @@ function LandingPage() {
           </li>
           <li
             className={` ${
-              descriptionListObserver.isVisible
+              descriptionListObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__slower"
                 : ""
             }`}
@@ -96,7 +96,7 @@ function LandingPage() {
         <div className="task-landing-buttons">
           <button
             className={`bg-color ${
-              buttonsObserver.isVisible
+              buttonsObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__slow"
                 : ""
             }`}
@@ -106,7 +106,7 @@ function LandingPage() {
           </button>
           <button
             className={` ${
-              buttonsObserver.isVisible
+              buttonsObserver.hasBeenVisible
                 ? "animate__animated animate__fadeInUp animate__slower"
                 : ""
             }`}

@@ -4,8 +4,8 @@ import "animate.css";
 import useVisibilityObserver from "./utils/useVisibilityObserver";
 
 function Navbar() {
-  const { ref: gifRef, isVisible: isGifVisible } = useVisibilityObserver();
-  const { ref: animatedRef, isVisible: isElementVisible } =
+  const { ref: gifRef, hasBeenVisible: isGifVisible } = useVisibilityObserver();
+  const { ref: animatedRef, hasBeenVisible: isElementVisible } =
     useVisibilityObserver();
   const [showGif, setShowGif] = useState(false); // Controls when to display the GIF
   const [isGifCompleted, setIsGifCompleted] = useState(false); // Tracks if the GIF has completed playing

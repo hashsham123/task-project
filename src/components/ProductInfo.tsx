@@ -1,55 +1,26 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import "../styles/product-info.scss";
 import BadgeHolder from "./BadgeHolder";
 import { badgeData } from "../staticData/batchData";
 import "animate.css";
+import useVisibilityObserver from "./utils/useVisibilityObserver";
 
 function ProductInfo() {
-  const [visibleStates, setVisibleStates] = useState({
-    ul1: false,
-    ul2: false,
-    ul3: false,
-  });
+  const headingObserver1 = useVisibilityObserver({ threshold: 0.5 });
+  const headingObserver2 = useVisibilityObserver({ threshold: 0.5 });
+  const headingObserver3 = useVisibilityObserver({ threshold: 0.5 });
+  const headingObserver4 = useVisibilityObserver({ threshold: 0.5 });
+  const headingObserver5 = useVisibilityObserver({ threshold: 0.5 });
 
-  const observers: any = useRef({}); // Keep references to Intersection Observers
-  const ulRefs: any = useRef({}); // Store references to each ul element
+  const descriptionObserver1 = useVisibilityObserver({ threshold: 0.5 });
+  const descriptionObserver2 = useVisibilityObserver({ threshold: 0.5 });
+  const descriptionObserver3 = useVisibilityObserver({ threshold: 0.5 });
 
-  useEffect(() => {
-    const handleIntersection = (entries: any, ulKey: any) => {
-      entries.forEach((entry: any) => {
-        if (entry.isIntersecting) {
-          setVisibleStates((prevStates) => ({
-            ...prevStates,
-            [ulKey]: true,
-          }));
-          if (observers.current[ulKey]) {
-            observers.current[ulKey].disconnect(); // Disconnect after observing once
-          }
-        }
-      });
-    };
+  const imageObserver = useVisibilityObserver({ threshold: 0.5 });
+  const textGroup1Observer = useVisibilityObserver({ threshold: 0.5 });
+  const textGroup2Observer = useVisibilityObserver({ threshold: 0.5 });
 
-    // Initialize observers for each ul
-    Object.keys(ulRefs.current).forEach((ulKey) => {
-      const observer = new IntersectionObserver((entries) =>
-        handleIntersection(entries, ulKey)
-      );
-      const ulElement = ulRefs.current[ulKey];
-      if (ulElement) {
-        ulElement
-          .querySelectorAll("li")
-          .forEach((li: any) => observer.observe(li));
-      }
-      observers.current[ulKey] = observer;
-    });
-
-    return () => {
-      // Cleanup observers on unmount
-      Object.values(observers.current).forEach((observer: any) =>
-        observer.disconnect()
-      );
-    };
-  }, []);
+  const badgeObserver = useVisibilityObserver({ threshold: 0.5 });
 
   return (
     <div className="task-product-info">
@@ -58,14 +29,12 @@ function ProductInfo() {
           <button className="bg-color">What is?</button>
           <button>How it works?</button>
         </div>
-        <ul
-          ref={(el) => (ulRefs.current.ul1 = el)}
-          className="taks-product-heading"
-        >
+        <ul className="taks-product-heading">
           <li style={{ display: "flex", gap: "0.5rem" }}>
             <span
+              ref={headingObserver1.ref}
               className={`${
-                visibleStates.ul1
+                headingObserver1.hasBeenVisible
                   ? "animate__animated animate__fadeInUp animate__faster"
                   : ""
               }`}
@@ -73,8 +42,9 @@ function ProductInfo() {
               Use
             </span>
             <span
+              ref={headingObserver2.ref}
               className={`${
-                visibleStates.ul1
+                headingObserver2.hasBeenVisible
                   ? "animate__animated animate__fadeInUp animate__faster"
                   : ""
               }`}
@@ -82,8 +52,9 @@ function ProductInfo() {
               AI
             </span>
             <span
+              ref={headingObserver3.ref}
               className={`${
-                visibleStates.ul1
+                headingObserver3.hasBeenVisible
                   ? "animate__animated animate__fadeInUp animate__fast"
                   : ""
               }`}
@@ -91,8 +62,9 @@ function ProductInfo() {
               faster
             </span>
             <span
+              ref={headingObserver4.ref}
               className={`${
-                visibleStates.ul1
+                headingObserver4.hasBeenVisible
                   ? "animate__animated animate__fadeInUp animate__slow"
                   : ""
               }`}
@@ -100,8 +72,9 @@ function ProductInfo() {
               and
             </span>
             <span
+              ref={headingObserver5.ref}
               className={`${
-                visibleStates.ul1
+                headingObserver5.hasBeenVisible
                   ? "animate__animated animate__fadeInUp animate__slower"
                   : ""
               }`}
@@ -109,63 +82,26 @@ function ProductInfo() {
               more
             </span>
           </li>
-          <li style={{ display: "flex", gap: "0.5rem" }}>
-            <span
-              className={`${
-                visibleStates.ul1
-                  ? "animate__animated animate__fadeInUp animate__faster"
-                  : ""
-              }`}
-            >
-              {" "}
-              efficiently
-            </span>
-            <span
-              className={`${
-                visibleStates.ul1
-                  ? "animate__animated animate__fadeInUp animate__faster"
-                  : ""
-              }`}
-            >
-              right
-            </span>
-            <span
-              className={`${
-                visibleStates.ul1
-                  ? "animate__animated animate__fadeInUp animate__fast"
-                  : ""
-              }`}
-            >
-              {" "}
-              on
-            </span>
-            <span
-              className={`${
-                visibleStates.ul1
-                  ? "animate__animated animate__fadeInUp animate__slow"
-                  : ""
-              }`}
-            >
-              your
-            </span>
-            <span
-              className={`${
-                visibleStates.ul1
-                  ? "animate__animated animate__fadeInUp animate__slower"
-                  : ""
-              }`}
-            >
-              device!
-            </span>
-          </li>
         </ul>
         <div className="task-product-content">
           <div className="task-product-image">
-            <img src="assets/images/stars.jpg" alt="star-image" />
-            <p style={{ display: "flex", gap: "0.5rem" }}>
+            <img
+              src="assets/images/stars.jpg"
+              alt="star-image"
+              ref={imageObserver.ref}
+              className={`${
+                imageObserver.hasBeenVisible
+                  ? "animate__animated animate__fadeIn animate__faster"
+                  : ""
+              }`}
+            />
+            <p
+              style={{ display: "flex", gap: "0.5rem" }}
+              ref={textGroup1Observer.ref}
+            >
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup1Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__faster"
                     : ""
                 }`}
@@ -174,7 +110,7 @@ function ProductInfo() {
               </span>
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup1Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__faster"
                     : ""
                 }`}
@@ -183,7 +119,7 @@ function ProductInfo() {
               </span>
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup1Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__fast"
                     : ""
                 }`}
@@ -192,17 +128,16 @@ function ProductInfo() {
               </span>
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup1Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__slow"
                     : ""
                 }`}
               >
                 At
               </span>
-
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup1Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__slower"
                     : ""
                 }`}
@@ -211,10 +146,13 @@ function ProductInfo() {
               </span>
             </p>
 
-            <p style={{ display: "flex", gap: "0.5rem" }}>
+            <p
+              style={{ display: "flex", gap: "0.5rem" }}
+              ref={textGroup2Observer.ref}
+            >
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup2Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__faster"
                     : ""
                 }`}
@@ -223,7 +161,7 @@ function ProductInfo() {
               </span>
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup2Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__faster"
                     : ""
                 }`}
@@ -232,7 +170,7 @@ function ProductInfo() {
               </span>
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup2Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__fast"
                     : ""
                 }`}
@@ -241,7 +179,7 @@ function ProductInfo() {
               </span>
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup2Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__slow"
                     : ""
                 }`}
@@ -250,7 +188,7 @@ function ProductInfo() {
               </span>
               <span
                 className={`${
-                  visibleStates.ul1
+                  textGroup2Observer.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__slower"
                     : ""
                 }`}
@@ -262,9 +200,9 @@ function ProductInfo() {
           <div className="task-product-description">
             <ul>
               <li
-                ref={(el) => (ulRefs.current.ul2 = el)}
+                ref={descriptionObserver1.ref}
                 className={`${
-                  visibleStates.ul1
+                  descriptionObserver1.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__fast"
                     : ""
                 }`}
@@ -272,9 +210,9 @@ function ProductInfo() {
                 Gcore inference at the Edge reduces the
               </li>
               <li
-                ref={(el) => (ulRefs.current.ul2 = el)}
+                ref={descriptionObserver2.ref}
                 className={`${
-                  visibleStates.ul1
+                  descriptionObserver2.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__slow"
                     : ""
                 }`}
@@ -282,9 +220,9 @@ function ProductInfo() {
                 latency of your ML model output and improves
               </li>
               <li
-                ref={(el) => (ulRefs.current.ul2 = el)}
+                ref={descriptionObserver3.ref}
                 className={`${
-                  visibleStates.ul1
+                  descriptionObserver3.hasBeenVisible
                     ? "animate__animated animate__fadeInUp animate__slower"
                     : ""
                 }`}
@@ -292,46 +230,12 @@ function ProductInfo() {
                 the performance of AI-enabled applications.{" "}
               </li>
             </ul>
-
-            <ul className="task-product-list">
-              <li
-                ref={(el) => (ulRefs.current.ul2 = el)}
-                className={`${
-                  visibleStates.ul1
-                    ? "animate__animated animate__fadeInUp animate__fast"
-                    : ""
-                }`}
-              >
-                Its particularly useful for AI apps that need immediate
-                processing
-              </li>
-              <li
-                ref={(el) => (ulRefs.current.ul2 = el)}
-                className={`${
-                  visibleStates.ul1
-                    ? "animate__animated animate__fadeInUp animate__slower"
-                    : ""
-                }`}
-              >
-                and minimal delay, like generative AI and real time object{" "}
-              </li>
-              <li
-                ref={(el) => (ulRefs.current.ul2 = el)}
-                className={`${
-                  visibleStates.ul1
-                    ? "animate__animated animate__fadeInUp animate__slow"
-                    : ""
-                }`}
-              >
-                detection
-              </li>
-            </ul>
             <div className="task-product-badges">
               {badgeData.map((row, rowIndex) => (
                 <div
-                  ref={(el) => (ulRefs.current.ul2 = el)}
+                  ref={badgeObserver.ref}
                   className={`task-product-badges-row task-product-badges-row2 ${
-                    visibleStates.ul1
+                    badgeObserver.hasBeenVisible
                       ? "animate__animated animate__fadeInRight animate__slow"
                       : ""
                   }`}

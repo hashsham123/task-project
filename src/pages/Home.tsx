@@ -17,7 +17,7 @@ function Home() {
       const targetHeight = window.innerHeight * 5.9;
       setIsFixed1(scrollTop >= targetHeight);
       setIsFixed2(scrollTop >= targetHeight + 100);
-      setIsFixed3(scrollTop >= targetHeight + 2650);
+      setIsFixed3(scrollTop >= targetHeight + 2000);
     };
 
     window.addEventListener("scroll", handleScroll);
